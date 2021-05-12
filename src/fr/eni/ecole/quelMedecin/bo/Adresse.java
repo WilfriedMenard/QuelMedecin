@@ -32,6 +32,7 @@ public class Adresse {
 
     /**
      * Afficher sous la forme :
+     * [Complément d'adresse]
      * Numero de rue Nom de rue
      * Code Postal Ville
      */
