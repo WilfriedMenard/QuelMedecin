@@ -38,7 +38,7 @@ public class Adresse {
      */
     public void afficher() {
         System.out.println(this.complementAdresse != null ? this.complementAdresse : "Aucun complément d'adresse");
-        System.out.printf("%d %s%n"+"0%d %s%n",this.numeroRue, this.nomRue, this.codePostal, this.nomVille);
+        System.out.printf("%d %s%n"+"%05d %s%n",this.numeroRue, this.nomRue, this.codePostal, this.nomVille);
     }
 }
 

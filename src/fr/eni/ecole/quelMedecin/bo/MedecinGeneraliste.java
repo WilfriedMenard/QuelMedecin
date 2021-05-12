@@ -1,6 +1,7 @@
 package fr.eni.ecole.quelMedecin.bo;
 
 import java.util.Locale;
+import java.time.LocalTime;
 
 /**
  * Classe qui représente les coordonnées d'un médecin généraliste
@@ -8,11 +9,21 @@ import java.util.Locale;
  * @author : Wilfried Menard
  */
 public class MedecinGeneraliste {
-        private String prenom;
-        private String nom;
-        private String numTelephone;
-        private static int tarif = 25;
-        private Adresse adresseMedecin;
+    private String prenom;
+    private String nom;
+    private String numTelephone;
+    private Adresse adresseMedecin;
+    private Creneau[] listeCreneaux = new Creneau[15];
+    private static int tarif = 25;
+
+    // Constructeur
+    public MedecinGeneraliste(String prenom, String nom, String numTelephone, Adresse adresseMedecin, Creneau[] listeCreneaux) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.numTelephone = numTelephone;
+        this.adresseMedecin = adresseMedecin;
+        this.listeCreneaux = listeCreneaux;
+    }
 
     public MedecinGeneraliste(String prenom, String nom, String numTelephone, Adresse adresseMedecin) {
         this.prenom = prenom;
@@ -20,10 +31,8 @@ public class MedecinGeneraliste {
         this.numTelephone = numTelephone;
         this.adresseMedecin = adresseMedecin;
     }
-
-    public String getNom() {
-        return nom;
-    }
+    // Les getter et setter
+    public String getNom() { return nom; }
 
     public String getNumTelephone() {
         return numTelephone;
@@ -47,8 +56,23 @@ public class MedecinGeneraliste {
      * Numero de rue Nom de rue
      * Code Postal Ville
      */
+
+    // L'affichage
     public void afficher() {
         System.out.printf("%s %s%nTéléphone : %S%nTarif : %d€%nAdresse :%n",this.nom.toUpperCase(), this.prenom, this.numTelephone, MedecinGeneraliste.tarif);
         this.adresseMedecin.afficher();
+        for (int i = 0; i < this.listeCreneaux.length; i++) {
+            this.listeCreneaux[i].afficher();
+        }
+    }
+
+    // Creation du tableau en association bidirectionnelle avec la classe Creneau
+    public void ajouterCreneau(Creneau ajoutDeCreneau) {
+        for (int i = 0; i < this.listeCreneaux.length; i++) {
+            if (this.listeCreneaux[i] == null) {
+                this.listeCreneaux[i] = ajoutDeCreneau;
+            break;
+            }
+        }
     }
 }
