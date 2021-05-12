@@ -12,11 +12,13 @@ public class MedecinGeneraliste {
         private String nom;
         private String numTelephone;
         private static int tarif = 25;
+        private Adresse adresseMedecin;
 
-        public MedecinGeneraliste(String nom, String prenom, String numTelephone) {
-            this.nom = nom;
-            this.prenom = prenom;
-            this.numTelephone = numTelephone;
+    public MedecinGeneraliste(String prenom, String nom, String numTelephone, Adresse adresseMedecin) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.numTelephone = numTelephone;
+        this.adresseMedecin = adresseMedecin;
     }
 
     public String getNom() {
@@ -40,8 +42,13 @@ public class MedecinGeneraliste {
      * NOM Prenom
      * Téléphone : XXXXXXXXXX
      * Tarif : XX€
+     * Adresse :
+     * [Complément d'adresse]
+     * Numero de rue Nom de rue
+     * Code Postal Ville
      */
     public void afficher() {
-        System.out.printf("%s %s%nTéléphone : %S%nTarif : %d€%n",this.nom.toUpperCase(), this.prenom, this.numTelephone, MedecinGeneraliste.tarif);
+        System.out.printf("%s %s%nTéléphone : %S%nTarif : %d€%nAdresse :%n",this.nom.toUpperCase(), this.prenom, this.numTelephone, MedecinGeneraliste.tarif);
+        this.adresseMedecin.afficher();
     }
 }
