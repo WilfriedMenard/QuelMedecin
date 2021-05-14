@@ -9,25 +9,25 @@ import java.time.LocalTime;
  * @author : Wilfried Menard
  */
 public class MedecinGeneraliste {
-    private String prenom;
     private String nom;
+    private String prenom;
     private String numTelephone;
     private Adresse adresseMedecin;
     private Creneau[] listeCreneaux = new Creneau[15];
     private static int tarif = 25;
 
     // Constructeur
-    public MedecinGeneraliste(String prenom, String nom, String numTelephone, Adresse adresseMedecin, Creneau[] listeCreneaux) {
-        this.prenom = prenom;
+    public MedecinGeneraliste(String nom, String prenom , String numTelephone, Adresse adresseMedecin, Creneau[] listeCreneaux) {
         this.nom = nom;
+        this.prenom = prenom;
         this.numTelephone = numTelephone;
         this.adresseMedecin = adresseMedecin;
         this.listeCreneaux = listeCreneaux;
     }
 
-    public MedecinGeneraliste(String prenom, String nom, String numTelephone, Adresse adresseMedecin) {
-        this.prenom = prenom;
+    public MedecinGeneraliste(String nom, String prenom,  String numTelephone, Adresse adresseMedecin) {
         this.nom = nom;
+        this.prenom = prenom;
         this.numTelephone = numTelephone;
         this.adresseMedecin = adresseMedecin;
     }
